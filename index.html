@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Matěj Kopecký</title>
+<meta name="description" content="Matěj Kopecký: robotika, počítačové vidění a AI. CV a videa z vývoje autonomního dronu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f5;
+    --fg: #2b2b2b;
+    --muted: #5e5b57;
+    --accent: #8f0d0d;
+    --accent-fg: #ffffff;
+    --rule: #e7d192;
+    --card: #ffffff;
+    --border: #e6e0d5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141211;
+      --fg: #ece8e3;
+      --muted: #a9a39c;
+      --accent: #e0705f;
+      --accent-fg: #141211;
+      --rule: #7d6d3c;
+      --card: #1c1918;
+      --border: #2f2a27;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.6 "Lato", system-ui, sans-serif;
+  }
+  main { max-width: 880px; margin: 0 auto; padding: 56px 16px 64px; }
+  h1, h2 { font-family: "Roboto Slab", Georgia, serif; line-height: 1.15; margin: 0; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: -0.01em; }
+  .tagline { color: var(--accent); font-weight: 700; font-size: 1.15rem; margin: 8px 0 24px; }
+  .intro { max-width: 640px; margin: 0 0 28px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .links a {
+    display: inline-block;
+    padding: 9px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .links a:hover { border-color: var(--accent); }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+  .links a.primary:hover { filter: brightness(1.08); }
+  section { margin-top: 56px; }
+  h2 {
+    font-size: 1.6rem;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--rule);
+    margin-bottom: 18px;
+  }
+  .lead { margin: 0 0 28px; max-width: 700px; }
+  figure { margin: 0 0 36px; }
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #000;
+  }
+  figcaption { margin-top: 10px; }
+  figcaption strong { display: block; font-size: 1.05rem; }
+  figcaption span { color: var(--muted); font-size: 0.95rem; }
+  .awards { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .awards li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .awards strong { display: block; }
+  .awards span { color: var(--muted); font-size: 0.95rem; }
+  footer { margin-top: 56px; color: var(--muted); font-size: 0.85rem; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Matěj Kopecký</h1>
+    <p class="tagline">Inženýr robotiky, počítačového vidění a AI</p>
+    <p class="intro">Stavím počítačové vidění a AI, které běží v živém provozu (Valka.ai).
+      Po večerech vyvíjím autonomní dron, který létá jen podle kamery a IMU.
+      Robotiku a řízení mám z ČVUT a EPFL.</p>
+    <ul class="links">
+      <li><a class="primary" href="matej-kopecky-cv.pdf">Otevřít CV (PDF)</a></li>
+      <li><a href="mailto:matej.kopecky99@seznam.cz">matej.kopecky99@seznam.cz</a></li>
+      <li><a href="https://www.linkedin.com/in/kopeckym6">LinkedIn</a></li>
+      <li><a href="https://github.com/silverhardliner">GitHub</a></li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Autonomní dron</h2>
+    <p class="lead">Vlastní projekt ve formátu Anduril AI Grand Prix. Dron nemá GPS ani
+      externí lokalizaci: brány hledá detektor YOLO, polohu odhaduje z kamery a IMU
+      a trajektorii si plánuje sám. Zatím létá v simulaci (Elodin, Betaflight SITL),
+      teď ho převádím na reálný dron.</p>
+
+    <figure>
+      <video controls playsinline preload="metadata" poster="videa/kolo-18-bran.jpg">
+        <source src="videa/kolo-18-bran.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>Celé kolo jen podle obrazu</strong>
+        <span>Trať s 18 branami. Vlevo nahoře je vidět, o kolik se odhad polohy liší
+          od skutečnosti, vpravo nahoře proletěná trajektorie.</span>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <video controls playsinline preload="metadata" poster="videa/detekce-bran.jpg">
+        <source src="videa/detekce-bran.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>Detekce bran</strong>
+        <span>Detektor YOLO v každém snímku najde brány a jejich rohy (oranžově vnější,
+          červeně vnitřní). Z rohů se pak počítá poloha dronu.</span>
+      </figcaption>
+    </figure>
+
+    <figure>
+      <video controls playsinline preload="metadata" poster="videa/zkouska-betaflight.jpg">
+        <source src="videa/zkouska-betaflight.mp4" type="video/mp4">
+      </video>
+      <figcaption>
+        <strong>Generálka na reálný dron</strong>
+        <span>Skutečný firmware Betaflight v simulaci, brány s ArUco značkami pro testy
+          v interiéru a předávání řízení mezi počítačem a pilotem, včetně ztráty
+          obrazu a nouzového přerušení.</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Ocenění</h2>
+    <ul class="awards">
+      <li><strong>1. místo, Nakopni Prahu 2026</strong>
+        <span>Praha ve stínu: navigace pro chodce podle stínů, počítaných nad 3D modelem celé Prahy.</span></li>
+      <li><strong>Finalista, ESA BIC Liftoff Challenge 2026</strong>
+        <span>Niveleta: historie pohybů terénu ze satelitního radaru (InSAR).</span></li>
+    </ul>
+  </section>
+
+  <footer>© 2026 Matěj Kopecký</footer>
+</main>
+</body>
+</html>
